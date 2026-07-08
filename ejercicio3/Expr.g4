@@ -4,7 +4,7 @@
 grammar Expr;
 
 root : expr;
-expr : expr ID IGUAL expr | expr NUM expr;
+expr : ID IGUAL expr | ID | NUM;
 
 ID: [a-zA-Z]+ ;
 IGUAL : '=' ;

@@ -10,13 +10,11 @@ else:
 
 def serializedATN():
     return [
-        4,1,4,21,2,0,7,0,2,1,7,1,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-        1,1,5,1,16,8,1,10,1,12,1,19,9,1,1,1,0,1,2,2,0,2,0,0,20,0,4,1,0,0,
-        0,2,6,1,0,0,0,4,5,3,2,1,0,5,1,1,0,0,0,6,7,6,1,-1,0,7,8,5,1,0,0,8,
-        17,1,0,0,0,9,10,10,2,0,0,10,11,5,3,0,0,11,16,3,2,1,3,12,13,10,1,
-        0,0,13,14,5,3,0,0,14,16,3,2,1,2,15,9,1,0,0,0,15,12,1,0,0,0,16,19,
-        1,0,0,0,17,15,1,0,0,0,17,18,1,0,0,0,18,3,1,0,0,0,19,17,1,0,0,0,2,
-        15,17
+        4,1,4,18,2,0,7,0,2,1,7,1,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,5,1,13,
+        8,1,10,1,12,1,16,9,1,1,1,0,1,2,2,0,2,0,0,16,0,4,1,0,0,0,2,6,1,0,
+        0,0,4,5,3,2,1,0,5,1,1,0,0,0,6,7,6,1,-1,0,7,8,5,1,0,0,8,14,1,0,0,
+        0,9,10,10,2,0,0,10,11,5,3,0,0,11,13,3,2,1,3,12,9,1,0,0,0,13,16,1,
+        0,0,0,14,12,1,0,0,0,14,15,1,0,0,0,15,3,1,0,0,0,16,14,1,0,0,0,1,14
     ]
 
 class ExprParser ( Parser ):
@@ -124,47 +122,27 @@ class ExprParser ( Parser ):
             self.state = 7
             self.match(ExprParser.NUM)
             self._ctx.stop = self._input.LT(-1)
-            self.state = 17
+            self.state = 14
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,1,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,0,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 15
-                    self._errHandler.sync(self)
-                    la_ = self._interp.adaptivePredict(self._input,0,self._ctx)
-                    if la_ == 1:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
-                        self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 9
-                        if not self.precpred(self._ctx, 2):
-                            from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
-                        self.state = 10
-                        self.match(ExprParser.MENOS)
-                        self.state = 11
-                        self.expr(3)
-                        pass
-
-                    elif la_ == 2:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
-                        self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 12
-                        if not self.precpred(self._ctx, 1):
-                            from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 1)")
-                        self.state = 13
-                        self.match(ExprParser.MENOS)
-                        self.state = 14
-                        self.expr(2)
-                        pass
-
-             
-                self.state = 19
+                    localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                    self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
+                    self.state = 9
+                    if not self.precpred(self._ctx, 2):
+                        from antlr4.error.Errors import FailedPredicateException
+                        raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
+                    self.state = 10
+                    self.match(ExprParser.MENOS)
+                    self.state = 11
+                    self.expr(3) 
+                self.state = 16
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,1,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,0,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -189,10 +167,6 @@ class ExprParser ( Parser ):
     def expr_sempred(self, localctx:ExprContext, predIndex:int):
             if predIndex == 0:
                 return self.precpred(self._ctx, 2)
-         
-
-            if predIndex == 1:
-                return self.precpred(self._ctx, 1)
          
 
 
