@@ -1,0 +1,11 @@
+IF=1
+PAREN_AB=2
+ID=3
+MAYOR=4
+NUM=5
+PAREN_CE=6
+WS=7
+'if'=1
+'('=2
+'>'=4
+')'=6
